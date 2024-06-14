@@ -1,10 +1,13 @@
 import '../styles/homePage.scss'
+import BackgroundVideo from '../components/BackgroundVideo'
 
 function HomePage(){
 
     return(
         <div className="wrapAll">
-            <h1>Hello world</h1>
+            <div className='headerWrap'>
+                <BackgroundVideo/>
+            </div>
         </div>
     )
 }

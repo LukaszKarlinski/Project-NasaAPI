@@ -1,0 +1,33 @@
+.backgroundVideoContainer{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    .backgroundVideo{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .contentOverlay{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        
+        background-color: rgba(0,0,0,0.3);
+
+        h1{
+            color: white;
+            text-transform: uppercase;
+            font-size: 6rem;
+            letter-spacing: 2px;
+        }
+
+    }
+}
