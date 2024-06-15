@@ -1,4 +1,4 @@
-const apiKey = 'Tcf5extgmZ7iXxXNcvM5LMrJTgytYyn2k1rHZyg7';
+import apiKey from './apiKey'
 const apiURL = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
 
 
