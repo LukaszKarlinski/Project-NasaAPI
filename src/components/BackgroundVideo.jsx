@@ -10,7 +10,7 @@ function BackgroundVideo(){
             </video>
 
             <div className='contentOverlay'>
-                <h1>Biblioteka zdjęć nasa</h1>
+                <h1>Welcome to the Universe</h1>
             </div>
         </div>
     )

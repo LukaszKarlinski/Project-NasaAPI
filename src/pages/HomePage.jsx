@@ -1,5 +1,6 @@
 import '../styles/homePage.scss'
 import BackgroundVideo from '../components/BackgroundVideo'
+import APOD from '../components/APOD/APOD'
 
 function HomePage(){
 
@@ -8,6 +9,7 @@ function HomePage(){
             <div className='headerWrap'>
                 <BackgroundVideo/>
             </div>
+            <APOD/>
         </div>
     )
 }

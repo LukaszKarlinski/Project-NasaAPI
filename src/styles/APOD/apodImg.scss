@@ -1,0 +1,24 @@
+.imgWrap{
+    max-height: 100%;
+    max-width: 70%;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .imgContainer{
+        height: 95%;
+        display: flex;
+        padding: 7px;
+        margin: 20px;
+
+    }
+
+    img{
+        object-fit: cover;
+        height: 100%;
+        width: auto;
+        max-width: 100%;
+        
+    }
+}
