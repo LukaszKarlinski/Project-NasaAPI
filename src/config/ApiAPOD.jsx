@@ -1,8 +1,11 @@
 import apiKey from './apiKey'
-const apiURL = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
+//const apiURL = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
 
 
-const fetchAPOD = async () =>{
+const fetchAPOD = async (date) =>{
+
+    const apiURL = `https://api.nasa.gov/planetary/apod?date=${date}&api_key=${apiKey}`;
+
     try{
         const response = await fetch(apiURL);
         if(!response.ok){

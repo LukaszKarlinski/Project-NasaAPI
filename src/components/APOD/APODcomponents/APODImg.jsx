@@ -1,14 +1,18 @@
 import { useEffect } from 'react';
 import '../../../styles/APOD/apodImg.scss'
 
-function APODImg(props){
+function APODImg({url, title, mediaType}){
 
-    const {url, title} = props;
+    
 
     return(
         <div className='imgWrap'>
             <div className='imgContainer'>
-                <img src={url} alt={title} />
+                {mediaType==='image'? 
+                    <img src={url} alt={title} /> : 
+                    <iframe src={url} frameborder="0"></iframe>
+                }
+                
             </div>
         </div>
     )

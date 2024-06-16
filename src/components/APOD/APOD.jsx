@@ -5,29 +5,94 @@ import fetchAPOD from '../../config/ApiAPOD';
 import APODImg from './APODcomponents/APODImg';
 import APODDescription from './APODcomponents/APODDescription';
 
+import { IconLoader2 } from '@tabler/icons-react';
+
 function APOD(){
+
+    const [apodDate, setApodDate] = useState({
+        date: new Date(),
+        dateFormat: '',
+    })
 
     const [apodData, setApodData] = useState({
         imgUrl: '',
         title: '',
-        date: '',
-        description: ''
+        description: '',
+        mediaType: '',
     })
 
-    useEffect(()=>{
-        const getData = async () =>{
-            const data = await fetchAPOD();
-            setApodData({
-                imgUrl: data.hdurl,
-                title: data.title,
-                data: data.date,
-                description: data.explanation,
-            });
-            console.log(apodData);
+    const [showRightArrow, setShowRightArrow] = useState(false);   
+    const [loadingData, setLoadingData] = useState(false);
+ 
+    const getData = async (apodDate) =>{
+        const data = await fetchAPOD(apodDate);
+        setApodData({
+            url: data.url,
+            title: data.title,
+            description: data.explanation,
+            mediaType: data.media_type,
+        });
+    }
+
+    const handleDate = (direction='') =>{
+
+        setApodData({
+            imgUrl: '',
+            title: '',
+            description: '',
+            mediaType: '',
+        })
+
+        const currentDate = new Date();
+
+        const date = new Date(apodDate.date);
+
+        if(direction==='-'){
+            date.setDate(new Date(date.getDate()-1));
+        }
+        else if(direction==='+'){
+            date.setDate(new Date(date.getDate()+1));
+        }
+        
+        
+
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+
+        const dateToFetch = `${year}-${month}-${day}`;
+        setApodDate({
+            date,
+            dateFormat: dateToFetch,
+        });
+
+        //showArrowRight handle
+        if(`${currentDate.getDate()}-${currentDate.getMonth()}-${currentDate.getFullYear()}` === `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`){
+            setShowRightArrow(false);
+        }
+        else{
+            setShowRightArrow(true);
         }
 
-        getData();
-    },[])
+
+    }
+
+    useEffect(()=>{
+        handleDate();
+    },[]);
+
+    useEffect(() =>{
+        getData(apodDate.dateFormat);
+    },[apodDate]);
+
+    useEffect(()=>{
+        if(apodData.description===''){
+            setLoadingData(true);
+        }
+        else{
+            setLoadingData(false);
+        }
+    },[apodData])
 
 
     return(
@@ -36,8 +101,9 @@ function APOD(){
                 <h2>Astronomy Picture of the Day</h2>
             </div>
             <div className='contentWrap'>
-                <APODImg url={apodData.imgUrl} title={apodData.title}/>
-                <APODDescription {...apodData}/>
+                {loadingData && <div className='loadingScreen'><div className='loadingContainer'><IconLoader2 size={50}/></div></div>}
+                <APODImg {...apodData}/>
+                <APODDescription {...apodData} date={apodDate.dateFormat} handleDate={handleDate} showRightArrow={showRightArrow}/>
             </div>
         </section>
     )
