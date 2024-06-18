@@ -1,7 +1,9 @@
 import '../styles/homePage.scss'
+import Menu from '../components/Menu'
 import BackgroundVideo from '../components/BackgroundVideo'
 import APOD from '../components/APOD/APOD'
-import Menu from '../components/Menu'
+import SolarSystem from '../components/solarSystem/SolarSystem'
+
 
 function HomePage(){
 
@@ -12,6 +14,7 @@ function HomePage(){
                 <BackgroundVideo/>
             </div>
             <APOD/>
+            <SolarSystem/>
         </div>
     )
 }
