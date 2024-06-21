@@ -1,0 +1,22 @@
+.solarSystemWrap{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    .planets, .planetContent{
+        position: absolute;
+        inset: 0;
+        height: 100vh;
+    }
+
+    .planets{
+        display: flex;
+        z-index: 1;
+    }
+
+    .planetContent{
+        display: flex;
+        align-items: center;
+        z-index: 2;
+    }
+}
