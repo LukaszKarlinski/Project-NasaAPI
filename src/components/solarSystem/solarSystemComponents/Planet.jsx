@@ -1,4 +1,5 @@
 import '../../../styles/solarSystem/planet.scss'
+import { IconChevronUp } from '@tabler/icons-react';
 
 const Planet = ({name, img, index, currentPlanet, delay, marginTop, handlePlanetClick}) =>{
 
@@ -19,7 +20,9 @@ const Planet = ({name, img, index, currentPlanet, delay, marginTop, handlePlanet
             <div className='planet' >
                 <h1>{name}</h1>
                 <div className='bottomArrow'>
-                    <p>^</p>
+                    <div className='arrowWrap'>
+                        <IconChevronUp stroke={2}/>
+                    </div>
                     <p>Learn More</p>
                 </div>
             </div>

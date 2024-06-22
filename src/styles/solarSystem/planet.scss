@@ -36,11 +36,20 @@
             height: 10vh;
             bottom: -10vh;
             background-color: black;
+            .arrowWrap{
+                height: 4vh;
+                width: 100%;
+                color: white;
+                text-align: center;
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+            }
             p{
                 color: white;
                 text-align: center;
                 font-size: 2rem;
-                line-height: 5vh;
+                line-height: 6vh;
             }
 
 

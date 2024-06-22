@@ -138,6 +138,7 @@ const OurSolarSystem = () =>{
     const [clickPlanet, setClickPlanet] = useState(false);
     const [zIndex, setZIndex] = useState(0);
     const [currentPlanet, setCurrentPlanet] = useState(0);
+    const [canvasGrabbing, setCanvasGrabbing] = useState(false);
 
     const changeZIndex = (value) =>{
         setZIndex(value);
@@ -156,8 +157,8 @@ const OurSolarSystem = () =>{
                 {planets.map((planet ,i) => <Planet key={i} index={i} name={planet.name} img={planet.img} delay={(i + 1)/10} marginTop={clickPlanet?'100vh': '0vh'} handlePlanetClick={handlePlanetClick} currentPlanet={setCurrentPlanet}/>)}
             </div>
             <div className="planetContent" style={{zIndex}}>
-                <PlanetCanvas texture={planets[currentPlanet].texture}/>
-                <PlanetInfo handlePlanetClick={() => {handlePlanetClick(), changeZIndex(0)}} name={planets[currentPlanet].name} info={planets[currentPlanet].info}/>
+                <PlanetCanvas texture={planets[currentPlanet].texture} canvasGrabbing={setCanvasGrabbing}/>
+                <PlanetInfo  handlePlanetClick={() => {handlePlanetClick(), changeZIndex(0)}} name={planets[currentPlanet].name} info={planets[currentPlanet].info}/>
             </div>
         </div>
     )

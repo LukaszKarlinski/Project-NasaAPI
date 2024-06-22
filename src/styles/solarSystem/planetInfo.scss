@@ -2,22 +2,43 @@
     position: relative;
     flex-grow: 1;
     height: 100%;
-    padding: 50px;
+    margin: 50px;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    overflow: hidden;
 
-    .back{
+    .backWrap{
+        display: flex;
         position: absolute;
         top: 0;
         right: 0;
-        width: 50px;
-        height: 50px;
+
+        height: 40px;
         color: white;
         cursor: pointer;
-        margin: 20px;
+        margin-top: 20px;
+        margin-right: -120px;
         font-size: 5rem;
+        transition: 1s;
+        &:hover{
+            margin-right: 0;
+        }
+        .arrow{
+            display: flex;
+            align-items: center;
+            width: 40px;
+        }
+        .textWrap{
+            height: 100%;
+            width: 120px;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 40px;
+
+        }
     }
     h1{
         text-align: center;

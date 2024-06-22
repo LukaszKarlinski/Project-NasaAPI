@@ -1,4 +1,5 @@
 import '../../../styles/solarSystem/planetInfo.scss'
+import { IconChevronLeft } from '@tabler/icons-react';
 
 const PlanetInfo = ({handlePlanetClick,name, info}) =>{
     return(
@@ -26,8 +27,13 @@ const PlanetInfo = ({handlePlanetClick,name, info}) =>{
                 <p>{info.atmosphere}</p>
             </div>}
 
-            <div className='back' onClick={() => {handlePlanetClick()}}>
-                {`<`}
+            <div className='backWrap' onClick={() => {handlePlanetClick()}}>
+                <div className='arrow'>
+                    <IconChevronLeft size={40}/>
+                </div>
+                <div className='textWrap'>
+                    go back
+                </div>
             </div>
         </div>
     )
