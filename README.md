@@ -1,8 +1,15 @@
-# React + Vite
+#Project-NasaAPI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Strona dostępna pod adresem: [lukaszkarlinski.github.io/Project-NasaAPI/](https://lukaszkarlinski.github.io/Project-NasaAPI/)
+Aplikacja zbudowana w React z elementami Three.js, wykorzystuje NASA API do pobierania informacji o astronomicznym zdjęciu dnia.
 
-Currently, two official plugins are available:
+##Opis
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Aplikacja umożliwia:
+- przeglądanie astronomicznego zdjęcia dnia z możliwością wyboru daty.
+- interaktywne zbadanie powierzchni każdej z planet układu słonecznego.
+- dostęp do szczegółowych informacji o planetach układu słonecznego.
+
+##Wykorzystane technologie:
+- React
+- Three.js Fiber
