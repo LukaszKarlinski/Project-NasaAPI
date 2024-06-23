@@ -1,25 +1,32 @@
+@use '../breakpoints';
+
 .planetInfoWrap{
     position: relative;
     flex-grow: 1;
     height: 100%;
+    max-height: 100vh;
     margin: 50px;
+    padding: 50px 0;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     overflow: hidden;
 
+    .infoGroupWrap{
+        overflow: auto;
+    }
+
     .backWrap{
         display: flex;
         position: absolute;
         top: 0;
         right: 0;
-
         height: 40px;
         color: white;
         cursor: pointer;
-        margin-top: 20px;
         margin-right: -120px;
+        margin-top: 10px;
         font-size: 5rem;
         transition: 1s;
         &:hover{
@@ -45,10 +52,12 @@
         font-size: 4rem;
         text-transform: uppercase;
         letter-spacing: 3px;
+        margin: 0 0 20px;
     }
 
     .overview{
         font-size: 1.8rem;
+        margin-bottom: 10px;
     }
 
     .informationWrap{
@@ -58,7 +67,7 @@
         align-items: center;
 
         h2{
-            margin-bottom: 20px;
+            margin: 20px 0 5px;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
@@ -67,5 +76,70 @@
             font-size: 1.8rem;
         }
 
+    }
+}
+
+@media screen and (max-width: breakpoints.$breakpoint-l) {
+    .planetInfoWrap{
+        margin: 10px;
+        h1{
+            font-size: 2.5rem;
+        }
+        .overview{
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        .informationWrap{
+
+            h2{
+                margin: 15px 0 5px;
+            }
+
+            h2,p{
+                font-size: 1.4rem;
+            }
+        }
+
+        .backWrap{
+            height: 30px;
+            margin-right: 0;
+            border-bottom: 2px solid white;
+            border-radius: 10px;
+            .arrow{
+                width: 20px;
+            }
+            .textWrap{
+                line-height: 30px;
+                font-size: 1.2rem;
+                width: 80px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: breakpoints.$breakpoint-s) {
+    .planetInfoWrap{
+        padding: 0;
+        max-height: none;
+        overflow: hidden;
+        height: auto;
+        h1{
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        .overview{
+            font-size: 1.2rem;
+        }
+
+        .informationWrap{
+            
+            h2,p{
+                font-size: 1.2rem;
+            }
+        }
+
+        .backWrap{
+            margin-top: 0px;
+        }
     }
 }

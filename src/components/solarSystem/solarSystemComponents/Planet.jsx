@@ -1,12 +1,16 @@
+import { useEffect } from 'react';
 import '../../../styles/solarSystem/planet.scss'
 import { IconChevronUp } from '@tabler/icons-react';
 
-const Planet = ({name, img, index, currentPlanet, delay, marginTop, handlePlanetClick}) =>{
+const Planet = ({name, img, index, currentPlanet, delay, marginType, marginValue, handlePlanetClick}) =>{
+
+    const correctMargin = marginType==='marginTop' ? `${marginValue}vh` : `${marginValue}vw`;
+
 
     const style = {
         backgroundImage:`url(${img})`,
         transition: `.5s ease-in ${delay}s`,
-        marginTop,
+        [marginType]: correctMargin,
     }
 
     const handleClick = () =>{

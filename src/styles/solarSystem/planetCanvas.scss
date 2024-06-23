@@ -1,3 +1,6 @@
+@use '../breakpoints';
+
+
 .canvasWrap{
     height: 80vh;
     width: 80vh;
@@ -9,4 +12,40 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+
+
+@media screen and (max-width: breakpoints.$breakpoint-l) {
+    .canvasWrap{
+        width: 50vw;
+        height: 50vw;
+        min-width: 50vw;
+        max-width: none;
+        max-height: 90vh;
+        margin: 20px;
+    }
+}
+
+
+@media screen and (orientation: portrait){
+    .canvasWrap{
+        height: 50vh;
+        width: 90%;
+        max-width: 100%;
+        min-width: 70%;
+        margin: 20px;
+    }
+}
+
+@media screen and (max-width: breakpoints.$breakpoint-s) {
+    .canvasWrap{
+        height: 40vh;
+    }
+}
+
+@media screen and (max-width: breakpoints.$breakpoint-xs) {
+    .canvasWrap{
+        height: 30vh;
+    }
 }

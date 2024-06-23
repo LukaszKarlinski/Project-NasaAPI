@@ -1,5 +1,5 @@
 import '../../styles/solarSystem/ourSolarSystem.scss'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three'
 import Planet from './solarSystemComponents/Planet'
@@ -138,7 +138,23 @@ const OurSolarSystem = () =>{
     const [clickPlanet, setClickPlanet] = useState(false);
     const [zIndex, setZIndex] = useState(0);
     const [currentPlanet, setCurrentPlanet] = useState(0);
-    const [canvasGrabbing, setCanvasGrabbing] = useState(false);
+    const [windowPortrait, setWindowPortrait] = useState(false); 
+
+    const handleResize = () =>{
+        if(window.innerHeight > window.innerWidth)
+            setWindowPortrait(true);
+        else
+            setWindowPortrait(false);
+    }
+
+    useEffect(()=>{
+        handleResize();
+        window.addEventListener('resize', () =>{handleResize()})
+    }, []);
+
+    useEffect(() =>{
+        console.log(windowPortrait);
+    },[windowPortrait]);
 
     const changeZIndex = (value) =>{
         setZIndex(value);
@@ -154,10 +170,10 @@ const OurSolarSystem = () =>{
     return (
         <div className="solarSystemWrap">
             <div className="planets">
-                {planets.map((planet ,i) => <Planet key={i} index={i} name={planet.name} img={planet.img} delay={(i + 1)/10} marginTop={clickPlanet?'100vh': '0vh'} handlePlanetClick={handlePlanetClick} currentPlanet={setCurrentPlanet}/>)}
+                {planets.map((planet ,i) => <Planet key={i} index={i} name={planet.name} img={planet.img} delay={(i + 1)/10} marginType={windowPortrait? 'marginLeft' : 'marginTop'} marginValue={clickPlanet?'100': '0'} handlePlanetClick={handlePlanetClick} currentPlanet={setCurrentPlanet}/>)}
             </div>
             <div className="planetContent" style={{zIndex}}>
-                <PlanetCanvas texture={planets[currentPlanet].texture} canvasGrabbing={setCanvasGrabbing}/>
+                <PlanetCanvas texture={planets[currentPlanet].texture}/>
                 <PlanetInfo  handlePlanetClick={() => {handlePlanetClick(), changeZIndex(0)}} name={planets[currentPlanet].name} info={planets[currentPlanet].info}/>
             </div>
         </div>

@@ -1,3 +1,5 @@
+@use '../breakpoints';
+
 .imgWrap{
     max-height: 100%;
     max-width: 60%;
@@ -28,5 +30,24 @@
         height: 100%;
         max-width: 100%;
         width: 100%;
+    }
+}
+
+@media screen and (max-width: breakpoints.$breakpoint-l) {
+    .imgWrap{
+
+        .imgContainer{
+            margin: 10px;
+            padding: 0px;
+        }
+    }
+}
+
+@media screen and (max-width: breakpoints.$breakpoint-xs) {
+    .imgWrap{
+        width: 100%;
+        max-width: 100%;
+        max-height: 50%;
+        height: 50%;
     }
 }

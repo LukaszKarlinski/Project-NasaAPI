@@ -19,3 +19,15 @@
         align-items: center;
     }
 }
+
+@media screen and (orientation: portrait) {
+    .solarSystemWrap{
+        .planetContent{
+            flex-direction: column;
+        }
+
+        .planets{
+            flex-direction: column;
+        }
+    }
+}

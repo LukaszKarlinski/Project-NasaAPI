@@ -3,6 +3,8 @@
     width: 12.5%;
     border-right: 1px solid white;
     background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     transition: .5s 1000;
 
     &:last-child{
@@ -53,6 +55,30 @@
             }
 
 
+        }
+    }
+}
+
+@media screen and (orientation: portrait) {
+    .planetWrap{
+        height: 12.5%;
+        width: 100%;
+
+        .planet{
+
+            &:hover{
+                margin-top: 0;
+            }
+
+            h1{
+                transform: rotate(0deg);
+                font-size: 2rem;
+            }
+        }
+
+
+        .bottomArrow{
+            display: none;
         }
     }
 }
