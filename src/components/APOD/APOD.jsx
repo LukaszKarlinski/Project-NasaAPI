@@ -7,32 +7,14 @@ import APODDescription from './APODcomponents/APODDescription';
 
 import { IconLoader2 } from '@tabler/icons-react';
 
-function APOD(){
+const APOD = () =>{
+
+    //setting correct date to fetch data
 
     const [apodDate, setApodDate] = useState({
         date: new Date(),
         dateFormat: '',
-    })
-
-    const [apodData, setApodData] = useState({
-        imgUrl: '',
-        title: '',
-        description: '',
-        mediaType: '',
-    })
-
-    const [showRightArrow, setShowRightArrow] = useState(false);   
-    const [loadingData, setLoadingData] = useState(false);
- 
-    const getData = async (apodDate) =>{
-        const data = await fetchAPOD(apodDate);
-        setApodData({
-            url: data.url,
-            title: data.title,
-            description: data.explanation,
-            mediaType: data.media_type,
-        });
-    }
+    });
 
     const handleDate = (direction='') =>{
 
@@ -53,9 +35,6 @@ function APOD(){
         else if(direction==='+'){
             date.setDate(new Date(date.getDate()+1));
         }
-        
-        
-
         const day = date.getDate();
         const month = date.getMonth() + 1;
         const year = date.getFullYear();
@@ -73,8 +52,6 @@ function APOD(){
         else{
             setShowRightArrow(true);
         }
-
-
     }
 
     useEffect(()=>{
@@ -85,6 +62,33 @@ function APOD(){
         getData(apodDate.dateFormat);
     },[apodDate]);
 
+    const [showRightArrow, setShowRightArrow] = useState(false);   
+
+
+    //get data from nasa api
+
+    const [apodData, setApodData] = useState({
+        imgUrl: '',
+        title: '',
+        description: '',
+        mediaType: '',
+    })
+
+    //get data from nasa api
+    const getData = async (apodDate) =>{
+        const data = await fetchAPOD(apodDate);
+        setApodData({
+            url: data.url,
+            title: data.title,
+            description: data.explanation,
+            mediaType: data.media_type,
+        });
+    }
+
+   
+    //handling loading screen
+    const [loadingData, setLoadingData] = useState(false);
+
     useEffect(()=>{
         if(apodData.description===''){
             setLoadingData(true);
@@ -92,7 +96,7 @@ function APOD(){
         else{
             setLoadingData(false);
         }
-    },[apodData])
+    },[apodData]);
 
 
     return(

@@ -1,9 +1,7 @@
 import { useEffect } from 'react';
 import '../../../styles/APOD/apodImg.scss'
 
-function APODImg({url, title, mediaType}){
-
-    
+const APODImg = ({url, title, mediaType}) => {
 
     return(
         <div className='imgWrap'>
@@ -11,8 +9,7 @@ function APODImg({url, title, mediaType}){
                 {mediaType==='image'? 
                     <img src={url} alt={title} /> : 
                     <iframe src={url} frameborder="0"></iframe>
-                }
-                
+                } 
             </div>
         </div>
     )

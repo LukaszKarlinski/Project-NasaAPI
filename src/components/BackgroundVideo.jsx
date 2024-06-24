@@ -1,7 +1,7 @@
 import '../styles/backgroundVideo.scss';
 import backgroundVideo from '../assets/videos/backgroundVideo1.mp4'
 
-function BackgroundVideo(){
+const BackgroundVideo = () =>{
 
     return(
         <div className='backgroundVideoContainer'>

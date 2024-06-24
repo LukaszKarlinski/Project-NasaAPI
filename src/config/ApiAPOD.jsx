@@ -1,5 +1,4 @@
 import apiKey from './apiKey'
-//const apiURL = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`
 
 
 const fetchAPOD = async (date) =>{

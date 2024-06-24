@@ -19,6 +19,8 @@ import neptune from '../../assets/textures/neptune2k.jpg'
 
 const OurSolarSystem = () =>{
 
+
+    //load textures for planets
     const mercuryTexture = useLoader(TextureLoader, mercury);
     const venusTexture = useLoader(TextureLoader, venus);
     const earthTexture = useLoader(TextureLoader, earth);
@@ -28,6 +30,7 @@ const OurSolarSystem = () =>{
     const uranusTexture = useLoader(TextureLoader, uranus);
     const neptuneTexture = useLoader(TextureLoader, neptune);
 
+    //set planets info
     const planets = [
         {
             name: 'mercury',
@@ -135,11 +138,14 @@ const OurSolarSystem = () =>{
         }
     ]
 
+
     const [clickPlanet, setClickPlanet] = useState(false);
     const [zIndex, setZIndex] = useState(0);
     const [currentPlanet, setCurrentPlanet] = useState(0);
     const [windowPortrait, setWindowPortrait] = useState(false); 
 
+
+    //handle responsiveness
     const handleResize = () =>{
         if(window.innerHeight > window.innerWidth)
             setWindowPortrait(true);
@@ -152,10 +158,8 @@ const OurSolarSystem = () =>{
         window.addEventListener('resize', () =>{handleResize()})
     }, []);
 
-    useEffect(() =>{
-        console.log(windowPortrait);
-    },[windowPortrait]);
 
+    //handle changing view between all planets and a specific planet
     const changeZIndex = (value) =>{
         setZIndex(value);
     }

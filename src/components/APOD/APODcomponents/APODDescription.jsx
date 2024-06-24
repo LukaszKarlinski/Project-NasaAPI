@@ -3,7 +3,7 @@ import '../../../styles/APOD/apodDescription.scss'
 import { IconChevronLeft } from '@tabler/icons-react';
 import { IconChevronRight } from '@tabler/icons-react';
 
-function APODDescription({title, date, description, handleDate, showRightArrow}){
+const APODDescription = ({title, date, description, handleDate, showRightArrow}) =>{
 
     const handleChangeDate = (direction) =>{
         handleDate(direction);

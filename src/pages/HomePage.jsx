@@ -5,7 +5,7 @@ import APOD from '../components/APOD/APOD'
 import OurSolarSystem from '../components/solarSystem/OurSolarSystem'
 
 
-function HomePage(){
+const HomePage = () =>{
 
     return(
         <div className="wrapAll">

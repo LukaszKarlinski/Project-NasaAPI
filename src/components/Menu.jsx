@@ -1,6 +1,6 @@
 import '../styles/menu.scss';
 
-function Menu(){
+const Menu = () =>{
 
     const handleScroll = (scrollTo)=>{
         const vh = window.innerHeight;

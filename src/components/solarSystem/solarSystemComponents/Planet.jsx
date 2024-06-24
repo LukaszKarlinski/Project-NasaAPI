@@ -4,8 +4,9 @@ import { IconChevronUp } from '@tabler/icons-react';
 
 const Planet = ({name, img, index, currentPlanet, delay, marginType, marginValue, handlePlanetClick}) =>{
 
-    const correctMargin = marginType==='marginTop' ? `${marginValue}vh` : `${marginValue}vw`;
 
+    //set the correct animation depending on the screen orientation
+    const correctMargin = marginType==='marginTop' ? `${marginValue}vh` : `${marginValue}vw`;
 
     const style = {
         backgroundImage:`url(${img})`,
@@ -13,6 +14,7 @@ const Planet = ({name, img, index, currentPlanet, delay, marginType, marginValue
         [marginType]: correctMargin,
     }
 
+    //passing information on which planet user clicked
     const handleClick = () =>{
         handlePlanetClick();
         currentPlanet(index);
